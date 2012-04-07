@@ -1,0 +1,28 @@
+ClockworkMod Recovery branch for the Acer Paso (aka Liquid Metal / Liquid mt)
+
+Copyright (C) 2011-2012 The CyanogenMod Project
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+As start, sync Cyanogen Mod sources like described on
+http://wiki.cyanogenmod.com/wiki/Nexus_One:_Compile_CyanogenMod_%28Linux%29
+When done, create acer folder on [your CM path(recommended android/system on home)]/device, then paso folder in it.
+
+To build CWM, just follow next instruction:
+in terminal:
+cd [your CM path]
+. build/envsetup.sh
+lunch full_paso-eng
+make -j[number of cores that you have * 2] recoveryimage
+
+then, when build is ready, you could find recovery image on:
+out/target/product/a4.
+to flash you could use fastboot (to enter one could perform that combo: power+volume up until see "fastboot mode" and colored stripes):
+fastboot -i 0x0502 flash recovery recovery.img 
+fastboot -i 0x0502 reboot
+
+
